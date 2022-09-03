@@ -1,11 +1,21 @@
 // navbar togglemenu start
-var navLinks = document.getElementById("navLinks");
+const navbar = document.querySelector('.navbar');
+const menu = document.querySelector('.menu-list');
+const menuBtn = document.querySelector('.menu-btn');
+const closeBtn = document.querySelector('.close-btn');
 
-function showMenu() {
-    navLinks.style.right = "0";
+menuBtn.onclick = () => {
+    menu.classList.add('active');
+    menuBtn.classList.add('hide');
+}
+closeBtn.onclick = () => {
+    menu.classList.remove('active');
+    menuBtn.classList.remove('hide');
 }
 
-function hideMenu() {
-    navLinks.style.right = "-200px";
-}
 // navbar togglemenu end
+
+// navbar sticky
+window.onscroll = () => {
+    this.scrollY > 0 ? navbar.classList.add("sticky") : navbar.classList.remove("sticky");
+}
