@@ -5,65 +5,106 @@
     font-family: 'Poppins', sans-serif;
 }
 
-.header {
-    min-height: 100vh;
+
+/* Navbar Property Start */
+
+.navbar {
+    position: fixed;
     width: 100%;
-    background-image: linear-gradient(#517e86c4, #949fdf1a), url(../images/banner1.png);
-    background-position: center;
-    background-size: cover;
-    position: relative;
+    background: transparent;
+    padding: 15px 40px;
+    z-index: 10;
+    transition: all 1s ease;
 }
 
-nav {
+.navbar .content {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 2% 6%;
 }
 
-nav .logo {
+.navbar.sticky {
+    background: #42a890;
+    padding: 15px 40px;
+}
+
+.navbar.sticky .logo a i {
+    color: #fff;
+}
+
+.navbar .logo a {
+    color: #fff;
     text-decoration: none;
-    font-size: 24px;
-    color: #fff3f3;
-    font-weight: bold;
+    font-size: 30px;
+    font-weight: 700;
 }
 
-nav .fab {
+.navbar .logo a i {
     font-size: 42px;
     color: #24f8c7;
 }
 
-.nav-links {
-    flex: 1;
-    text-align: right;
+.navbar .menu-list {
+    display: inline-flex;
 }
 
-.nav-links ul li {
-    display: inline-block;
+.menu-list li {
     list-style: none;
-    padding: 8px 12px;
-    position: relative;
     text-transform: uppercase;
 }
 
-.nav-links ul li a {
+.menu-list li a {
     text-decoration: none;
-    font-size: 18px;
     color: #fff;
+    margin-left: 40px;
+    display: inline-block;
+    transition: all 0.5s ease;
 }
 
-.nav-links ul li::after {
+.menu-list li a:hover {
+    color: #000;
+}
+
+.menu-list li a::after {
     content: '';
     width: 0%;
     height: 2px;
-    background: #24f8c7;
+    background: #000;
     display: block;
     margin: auto;
-    transition: 0.5s;
+    transition: 0.5s ease;
 }
 
-.nav-links ul li:hover::after {
+.menu-list li a:hover::after {
+    width: 90%;
+    transition: 0.5s ease;
+}
+
+.menu {
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+    display: none;
+}
+
+.menu.close-btn {
+    position: absolute;
+    top: 20px;
+    left: 30px;
+}
+
+
+/* Navbar Property End */
+
+
+/* Header Property Start */
+
+.header {
+    min-height: 100vh;
     width: 100%;
+    background-image: linear-gradient(#517e86c4, #1b1b1b9c), url(../images/banner1.png);
+    background-position: center;
+    background-size: cover;
 }
 
 .text-box {
@@ -116,14 +157,14 @@ nav .fab {
     transition: 1s;
 }
 
-nav .fa {
-    display: none;
-}
+
+/* Header Property End */
 
 
 /* Responsive Navbar Section Start */
 
 @media(max-width: 700px) {
+    /* Banner Property Start */
     .text-box h2 {
         font-size: 50px;
     }
@@ -134,30 +175,39 @@ nav .fa {
         margin: 10px 40px;
         font-size: 15px;
     }
-    .nav-links ul li {
+    /* Banner Property End */
+    /* Navbar Property Start */
+    .navbar .menu-list {
         display: block;
-    }
-    .nav-links {
         position: fixed;
+        background: #42a890;
+        padding: 60px 0;
         height: 100vh;
-        width: 200px;
+        width: 100%;
+        max-width: 250px;
         top: 0;
-        right: -200px;
-        background: #47b19efa;
+        right: -100%;
         text-align: left;
-        z-index: 2;
         transition: 1.2s;
     }
-    nav .fa {
+    .navbar .menu-list.active {
+        right: 0%;
+    }
+    .navbar .menu-list li {
         display: block;
-        color: #ffff;
-        margin: 10px;
-        font-size: 22px;
-        cursor: pointer;
     }
-    .nav-links ul {
-        padding: 30px;
+    .navbar .menu-list li a {
+        font-size: 20px;
+        font-weight: 500;
+        text-transform: uppercase;
     }
+    .menu {
+        display: block;
+    }
+    .menu.hide {
+        display: none;
+    }
+    /* Navbar Property End */
 }
 
 
@@ -167,7 +217,7 @@ nav .fa {
     width: 80%;
     margin: auto;
     text-align: center;
-    padding-top: 100px;
+    padding-top: 70px;
 }
 
 .PageBlock {
@@ -574,23 +624,26 @@ hr {
     background-position: center;
     background-size: cover;
     text-align: center;
-    color: #fff;
 }
 
 .sub-header h1 {
-    margin-top: 80px;
+    width: 100%;
+    color: #24f8c7;
+    top: 20%;
+    position: absolute;
+    text-align: center;
 }
 
 .about-us {
     width: 80%;
     margin: auto;
-    padding-top: 80px;
+    padding-top: 60px;
     padding-bottom: 50px;
 }
 
 .about-col {
-    flex-basis: 48%;
-    padding: 30px 2px;
+    flex-basis: 45%;
+    padding: 0px 2px;
 }
 
 .about-col img {
